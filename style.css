@@ -376,6 +376,15 @@ body.dark-mode .section-light h3,
 body.dark-mode .section-light article h3 {
   color: var(--gold);
 }
+body.dark-mode .section-dark{
+   background: #000000;
+   color: var(00cream0text);}
+}
+body.dark-mode .section-dark h2,
+body.dark-mode .section-dark h3,
+body.dark-mode .section-dark article h3 {
+  color: var(--gold);
+}
 
 body.dark-mode .section-light .btn,
 body.dark-mode .section-light .clock {
