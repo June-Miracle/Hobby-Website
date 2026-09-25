@@ -1,15 +1,6 @@
-/* =========================================
-The Modern Odysseys — script.js
-========================================= */
-
 document.addEventListener('DOMContentLoaded', function () {
 
-/* ---------------------------------------
-Feature 0: Page Navigation
-Clicking a nav button shows that page's
-<section class="page"> and hides the rest,
-instead of scrolling down a long column.
---------------------------------------- */
+/* Feature 0: Page Navigation*/
 const navButtons = document.querySelectorAll('.nav-btn');
 const pages = document.querySelectorAll('.page');
 
@@ -49,10 +40,7 @@ const startingHash = window.location.hash.replace('#', '');
 const startingPage = document.getElementById(startingHash) ? startingHash : 'about';
 showPage(startingPage);
 
-/* ---------------------------------------
-Feature 1: Live Digital Clock
-Updates every second.
---------------------------------------- */
+/*Feature 1: Live Digital Clock*/
 const clockEl = document.getElementById('live-clock');
 
 function updateClock() {
@@ -72,11 +60,7 @@ clockEl.textContent = `Current Time: ${hoursStr}:${minutes}:${seconds} ${ampm}`;
 updateClock();
 setInterval(updateClock, 1000);
 
-/* ---------------------------------------
-Feature 2: Countdown Timer
-Counts down to the film's one-year
-anniversary re-release event.
---------------------------------------- */
+/* Feature 2: Countdown Timer*/
 const countdownEl = document.getElementById('countdown-timer');
 const targetDate = new Date('2027-07-17T00:00:00');
 
@@ -105,10 +89,7 @@ countdownEl.innerHTML = `
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* ---------------------------------------
-Feature 3: Interactive Button
-Displays a random Odyssey-related fact.
---------------------------------------- */
+/* Feature 3: Interactive Button*/
 const facts = [
 'Homer\'s Odyssey is composed of 24 books, mirroring the 24 letters of the Greek alphabet.',
 'The word "odyssey" has entered everyday English to mean any long, adventurous journey.',
@@ -130,9 +111,7 @@ const randomIndex = Math.floor(Math.random() * facts.length);
 factOutput.textContent = facts[randomIndex];
 });
 
-/* ---------------------------------------
-Bonus Feature: Dark / Light Mode Toggle
---------------------------------------- */
+/* Bonus Feature: Dark / Light Mode Toggle*/
 const themeToggleBtn = document.getElementById('theme-toggle');
 
 themeToggleBtn.addEventListener('click', function () {
