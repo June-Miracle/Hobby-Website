@@ -65,7 +65,7 @@ a:hover,
 a:focus-visible {
   color: var(--wine);
 }
-
+main {flex:1;}
 /* Visible keyboard focus everywhere */
 a:focus-visible,
 button:focus-visible {
