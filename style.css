@@ -1,5 +1,5 @@
 :root {
-  --ink: #10161B;          
+  --ink: #10161B;         
   --ink-soft: #1B242C;     
   --parchment: #EDE3C8;    
   --parchment-soft: #F6EFDC; 
@@ -271,6 +271,7 @@ article h3 {
   display: block;
   width: 100%;
   max-width: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border: 1px solid var(--gold);
   padding: 6px;
@@ -292,15 +293,19 @@ section ul {
 
 section ul li {
   position: relative;
-  padding: 0.5rem 0 0.5rem 1.4rem;
+  padding: 0.5rem 0 0.5rem 1rem;
   border-left: 3px solid var(--gold);
   margin-bottom: 0.6rem;
-  background: var(--ink);
-  padding-left: 1rem;
 }
 
 .section-dark ul li {
+  background: var(--ink);
   color: var(--cream-text);
+}
+
+.section-light ul li {
+  background: var(--parchment-soft);
+  color: var(--ink-text);
 }
 
 /* -------------------- Countdown -------------------- */
