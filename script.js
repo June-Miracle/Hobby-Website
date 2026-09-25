@@ -118,9 +118,9 @@ themeToggleBtn.addEventListener('click', function () {
 document.body.classList.toggle('dark-mode');
 
 if (document.body.classList.contains('dark-mode')) {
-themeToggleBtn.textContent = '☀️ Toggle Dark / Light Mode';
+themeToggleBtn.textContent = 'Light Mode';
 } else {
-themeToggleBtn.textContent = '🌙 Toggle Dark / Light Mode';
+themeToggleBtn.textContent = 'Dark Mode';
 }
 });
 
