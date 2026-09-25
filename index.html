@@ -4,27 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Modern Odysseys</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
     <h1>The Modern Odysseys</h1>
     <p>Tracing Homer's <em>Odyssey</em> through modern film, music, literature, and games.</p>
+    <div id="live-clock" class="clock">Loading time...</div>
+    <button id="theme-toggle" class="btn">🌙 Toggle Dark / Light Mode</button>
   </header>
 
-  <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#screen">On Screen</a></li>
-      <li><a href="#music">In Music</a></li>
-      <li><a href="#page">On the Page</a></li>
-      <li><a href="#games">In Games</a></li>
+  <!-- Navigation is now a set of clickable page buttons, not anchor scroll links.
+       JavaScript swaps which <section class="page"> is visible. -->
+  <nav aria-label="Site pages">
+    <ul class="nav-list">
+      <li><button class="nav-btn" data-page="about" type="button">About</button></li>
+      <li><button class="nav-btn" data-page="screen" type="button">On Screen</button></li>
+      <li><button class="nav-btn" data-page="music" type="button">In Music</button></li>
+      <li><button class="nav-btn" data-page="literature" type="button">On the Page</button></li>
+      <li><button class="nav-btn" data-page="games" type="button">In Games</button></li>
+      <li><button class="nav-btn" data-page="countdown" type="button">Countdown</button></li>
+      <li><button class="nav-btn" data-page="fact-generator" type="button">Fun Fact</button></li>
     </ul>
   </nav>
 
   <main>
 
-    <section id="about">
+    <section id="about" class="page section-light">
       <h2>About This Site</h2>
       <p>
         Homer's <em>Odyssey</em> has survived nearly three thousand years, and it keeps
@@ -35,14 +45,15 @@
         literature enthusiast, a longtime fan of the epic, or an internet historian tracking
         how old stories resurface online, we hope you find something here worth exploring.
       </p>
+      <p>Use the buttons above to jump straight to a topic — no scrolling required.</p>
     </section>
 
-    <section id="screen">
+    <section id="screen" class="page section-dark">
       <h2>On Screen</h2>
 
       <article>
         <h3>Christopher Nolan's <em>The Odyssey</em> (2026)</h3>
-        <img src="https://picsum.photos/seed/odyssey-film/600/350" alt="Illustrative image representing an epic seafaring film">
+        <img class="artifact-img" src="https://picsum.photos/seed/odyssey-film/600/350" alt="Illustrative image representing an epic seafaring film">
         <p>
           Christopher Nolan's big-budget theatrical adaptation brings Homer's epic to
           IMAX screens with a starry ensemble cast. As one of the most anticipated
@@ -54,7 +65,7 @@
 
       <article>
         <h3><em>O Brother, Where Art Thou?</em> (2000)</h3>
-        <img src="https://picsum.photos/seed/obrother/600/350" alt="Illustrative image representing a Depression-era road film">
+        <img class="artifact-img" src="https://picsum.photos/seed/obrother/600/350" alt="Illustrative image representing a Depression-era road film">
         <p>
           The Coen Brothers relocate Odysseus's journey to Depression-era Mississippi,
           following escaped convict Ulysses Everett McGill as he makes his way home.
@@ -65,12 +76,12 @@
       </article>
     </section>
 
-    <section id="music">
+    <section id="music" class="page section-light">
       <h2>In Music</h2>
 
       <article>
         <h3><em>EPIC: The Musical</em></h3>
-        <img src="https://picsum.photos/seed/epic-musical/600/350" alt="Illustrative image representing a musical stage production">
+        <img class="artifact-img" src="https://picsum.photos/seed/epic-musical/600/350" alt="Illustrative image representing a musical stage production">
         <p>
           Jorge Rivera-Herrans's sung-through musical retells the entire <em>Odyssey</em>
           across a series of thematic "sagas," blending genres from rock to R&amp;B to
@@ -85,12 +96,12 @@
       </article>
     </section>
 
-    <section id="page">
+    <section id="literature" class="page section-dark">
       <h2>On the Page</h2>
 
       <article>
         <h3><em>Circe</em> — Madeline Miller</h3>
-        <img src="https://picsum.photos/seed/circe-novel/600/350" alt="Illustrative image representing a mythological novel">
+        <img class="artifact-img" src="https://picsum.photos/seed/circe-novel/600/350" alt="Illustrative image representing a mythological novel">
         <p>
           Miller shifts the focus away from Odysseus entirely, centering the witch Circe
           and expanding her brief appearance in Homer into a full life story. The novel
@@ -101,7 +112,7 @@
 
       <article>
         <h3><em>Ithaca</em> — Claire North</h3>
-        <img src="https://picsum.photos/seed/ithaca-novel/600/350" alt="Illustrative image representing a novel set on an ancient island">
+        <img class="artifact-img" src="https://picsum.photos/seed/ithaca-novel/600/350" alt="Illustrative image representing a novel set on an ancient island">
         <p>
           North's novel stays on Ithaca itself, imagining the years Odysseus was away
           through the eyes of Penelope and the women around her. It reframes the
@@ -119,12 +130,12 @@
       </ul>
     </section>
 
-    <section id="games">
+    <section id="games" class="page section-light">
       <h2>In Games</h2>
 
       <article>
         <h3><em>Hades</em> / <em>Hades II</em> — Supergiant Games</h3>
-        <img src="https://picsum.photos/seed/hades-game/600/350" alt="Illustrative image representing a mythological video game">
+        <img class="artifact-img" src="https://picsum.photos/seed/hades-game/600/350" alt="Illustrative image representing a mythological video game">
         <p>
           While centered on the house of Hades rather than Odysseus directly, both
           games draw deeply from the same well of Greek myth that shaped the
@@ -135,11 +146,29 @@
       </article>
     </section>
 
+    <section id="countdown" class="page section-dark">
+      <h2>Countdown to the First Anniversary Screening</h2>
+      <p>
+        Christopher Nolan's <em>The Odyssey</em> premiered in theaters on July 17, 2026.
+        Here's the countdown to its one-year anniversary re-release event on
+        <strong>July 17, 2027</strong>.
+      </p>
+      <div id="countdown-timer" class="countdown-box">Loading countdown...</div>
+    </section>
+
+    <section id="fact-generator" class="page section-light">
+      <h2>Random Odyssey Fact</h2>
+      <p>Click the button for a random fact about Homer's <em>Odyssey</em> and its legacy.</p>
+      <button id="fact-btn" class="btn">Give Me a Fact</button>
+      <p id="fact-output" class="fact-box">Your fact will appear here.</p>
+    </section>
+
   </main>
 
   <footer>
     <p>&copy; 2026 The Modern Odysseys. A fan-made project for literature enthusiasts.</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
