@@ -1,27 +1,19 @@
-/* =========================================================
-   THE MODERN ODYSSEYS — stylesheet
-   Palette inspired by an aged sea chart: deep ink-blue "night
-   sailing" sections alternate with warm parchment "landfall"
-   sections, tied together with aegean-blue and antique-gold accents.
-   ========================================================= */
-
 :root {
-  --ink: #10161B;          /* deep sea-ink, dark section backgrounds  */
-  --ink-soft: #1B242C;     /* slightly lighter ink, cards on dark bg  */
-  --parchment: #EDE3C8;    /* aged papyrus, light section backgrounds */
-  --parchment-soft: #F6EFDC; /* lighter card surface on parchment    */
-  --aegean: #2F6690;       /* primary accent — links, nav, buttons    */
-  --aegean-deep: #234C6B;  /* hover state for aegean                  */
-  --gold: #A6802D;         /* secondary accent — rules, borders       */
-  --wine: #7B3B3B;         /* tertiary accent — quote/fact box        */
-  --ink-text: #211C14;     /* body text on parchment                  */
-  --cream-text: #F1E9D2;   /* body text on ink                        */
+  --ink: #10161B;         
+  --ink-soft: #1B242C;     
+  --parchment: #EDE3C8;    
+  --parchment-soft: #F6EFDC; 
+  --aegean: #2F6690;      
+  --aegean-deep: #234C6B;  
+  --gold: #A6802D;         
+  --wine: #7B3B3B;         
+  --ink-text: #211C14;     
+  --cream-text: #F1E9D2;   
   --max-width: 760px;
 
   --font-display: "Spectral", Georgia, "Times New Roman", serif;
   --font-body: "Inter", -apple-system, Segoe UI, Roboto, sans-serif;
 }
-
 /* -------------------- Reset & base -------------------- */
 * {
   box-sizing: border-box;
@@ -219,7 +211,7 @@ section.page.active {
 }
 
 .section-dark {
-  background: var(--ink);
+  background: var(--ink-soft);
   color: var(--cream-text);
 }
 
@@ -278,7 +270,7 @@ article h3 {
   display: block;
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 260px;
   object-fit: cover;
   border: 1px solid var(--gold);
   padding: 6px;
@@ -287,7 +279,7 @@ article h3 {
 }
 
 .section-dark .artifact-img {
-  background: var(--ink-soft);
+  background: var(--ink);
 }
 
 /* -------------------- Lists -------------------- */
@@ -303,7 +295,7 @@ section ul li {
   padding: 0.5rem 0 0.5rem 1.4rem;
   border-left: 3px solid var(--gold);
   margin-bottom: 0.6rem;
-  background: var(--ink-soft);
+  background: var(--ink);
   padding-left: 1rem;
 }
 
@@ -420,7 +412,7 @@ body.dark-mode .section-dark article h3 {
 }
 
 body.dark-mode .section-dark .artifact-img {
-  background: #000000;
+  background: var(--ink);
 }
 
 body.dark-mode footer {
@@ -449,6 +441,10 @@ body.dark-mode footer {
 
   section > h2 {
     font-size: 1.5rem;
+  }
+
+  .artifact-img {
+    height: 200px;
   }
 
   .countdown-box .unit {
