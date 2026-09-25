@@ -1,1 +1,441 @@
+/* =========================================================
+   THE MODERN ODYSSEYS — stylesheet
+   Palette inspired by an aged sea chart: deep ink-blue "night
+   sailing" sections alternate with warm parchment "landfall"
+   sections, tied together with aegean-blue and antique-gold accents.
+   ========================================================= */
 
+:root {
+  --ink: #10161B;          /* deep sea-ink, dark section backgrounds  */
+  --ink-soft: #1B242C;     /* slightly lighter ink, cards on dark bg  */
+  --parchment: #EDE3C8;    /* aged papyrus, light section backgrounds */
+  --parchment-soft: #F6EFDC; /* lighter card surface on parchment    */
+  --aegean: #2F6690;       /* primary accent — links, nav, buttons    */
+  --aegean-deep: #234C6B;  /* hover state for aegean                  */
+  --gold: #A6802D;         /* secondary accent — rules, borders       */
+  --wine: #7B3B3B;         /* tertiary accent — quote/fact box        */
+  --ink-text: #211C14;     /* body text on parchment                  */
+  --cream-text: #F1E9D2;   /* body text on ink                        */
+  --max-width: 760px;
+
+  --font-display: "Spectral", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* -------------------- Reset & base -------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--parchment);
+  color: var(--ink-text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.6em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--aegean-deep);
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--wine);
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* -------------------- Header -------------------- */
+header {
+  background: var(--ink);
+  color: var(--cream-text);
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.02em;
+  color: var(--cream-text);
+}
+
+header p {
+  max-width: 560px;
+  margin: 0 auto 1.5rem;
+  color: var(--parchment);
+  font-size: 1.05rem;
+}
+
+.clock {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--gold);
+  padding: 0.5rem 1.2rem;
+  margin-bottom: 1.2rem;
+  color: var(--gold);
+}
+
+/* -------------------- Buttons -------------------- */
+.btn {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cream-text);
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* Buttons that sit on a parchment section need dark-friendly borders */
+.section-light .btn,
+.section-light .clock {
+  color: var(--wine);
+  border-color: var(--wine);
+}
+
+.section-light .btn:hover {
+  background: var(--wine);
+  color: var(--parchment-soft);
+}
+
+/* -------------------- Navigation (clickable page buttons) -------------------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--ink-soft);
+  border-bottom: 1px solid var(--gold);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.85rem 1rem;
+}
+
+.nav-btn {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--cream-text);
+  background: transparent;
+  border: 1.5px solid transparent;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-btn:hover,
+.nav-btn:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.nav-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+/* -------------------- Sections / Pages -------------------- */
+/* Only one .page is shown at a time; script.js toggles the .active class. */
+section.page {
+  display: none;
+  padding: 3.5rem 1.5rem;
+}
+
+section.page.active {
+  display: block;
+  animation: fadeInPage 0.35s ease;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  section.page.active {
+    animation: none;
+  }
+}
+
+.section-light {
+  background: var(--parchment);
+  color: var(--ink-text);
+}
+
+.section-dark {
+  background: var(--ink);
+  color: var(--cream-text);
+}
+
+.section-dark h2,
+.section-dark h3 {
+  color: var(--cream-text);
+}
+
+.section-dark a {
+  color: var(--gold);
+}
+
+section > h2 {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.9rem;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.5rem;
+}
+
+section > p {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -------------------- Articles / content cards -------------------- */
+article {
+  max-width: var(--max-width);
+  margin: 0 auto 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed var(--gold);
+}
+
+article:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+article h3 {
+  font-size: 1.3rem;
+}
+
+.section-light article h3 {
+  color: var(--aegean-deep);
+}
+
+.section-dark article h3 {
+  color: var(--parchment);
+}
+
+/* -------------------- Images -------------------- */
+.artifact-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border: 1px solid var(--gold);
+  padding: 6px;
+  background: var(--parchment-soft);
+  margin-bottom: 1rem;
+}
+
+.section-dark .artifact-img {
+  background: var(--ink-soft);
+}
+
+/* -------------------- Lists -------------------- */
+section ul {
+  max-width: var(--max-width);
+  margin: 1rem auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+section ul li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 1.4rem;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 0.6rem;
+  background: var(--ink-soft);
+  padding-left: 1rem;
+}
+
+.section-dark ul li {
+  color: var(--cream-text);
+}
+
+/* -------------------- Countdown -------------------- */
+.countdown-box {
+  max-width: var(--max-width);
+  margin: 1.5rem auto 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.countdown-box .unit {
+  background: var(--ink-soft);
+  border: 1px solid var(--gold);
+  padding: 1rem 1.3rem;
+  min-width: 84px;
+  text-align: center;
+}
+
+.countdown-box .unit .value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gold);
+}
+
+.countdown-box .unit .label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--cream-text);
+  margin-top: 0.2rem;
+}
+
+/* -------------------- Fact generator -------------------- */
+.fact-box {
+  max-width: var(--max-width);
+  margin: 1.2rem auto 0;
+  padding: 1.2rem 1.4rem;
+  background: var(--parchment-soft);
+  border-left: 4px solid var(--wine);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-text);
+}
+
+/* -------------------- Footer -------------------- */
+footer {
+  background: var(--ink);
+  color: var(--parchment);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.9rem;
+  border-top: 3px solid var(--gold);
+}
+
+/* -------------------- Dark mode (site-wide toggle) -------------------- */
+body.dark-mode {
+  background: var(--ink);
+  color: var(--cream-text);
+}
+
+body.dark-mode .section-light {
+  background: var(--ink-soft);
+  color: var(--cream-text);
+}
+
+body.dark-mode .section-light h2,
+body.dark-mode .section-light h3,
+body.dark-mode .section-light article h3 {
+  color: var(--gold);
+}
+
+body.dark-mode .section-light .btn,
+body.dark-mode .section-light .clock {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+body.dark-mode .section-light .btn:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+body.dark-mode .fact-box {
+  background: var(--ink-soft);
+  color: var(--cream-text);
+}
+
+body.dark-mode .nav-btn.active {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+body.dark-mode footer {
+  color: var(--cream-text);
+}
+
+/* -------------------- Responsive layout -------------------- */
+@media (max-width: 640px) {
+  header {
+    padding: 2.2rem 1rem 2rem;
+  }
+
+  .nav-list {
+    gap: 0.4rem;
+    padding: 0.7rem;
+  }
+
+  .nav-btn {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.75rem;
+  }
+
+  section {
+    padding: 2.5rem 1rem;
+  }
+
+  section > h2 {
+    font-size: 1.5rem;
+  }
+
+  .artifact-img {
+    height: 200px;
+  }
+
+  .countdown-box .unit {
+    min-width: 70px;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .countdown-box .unit .value {
+    font-size: 1.4rem;
+  }
+}
