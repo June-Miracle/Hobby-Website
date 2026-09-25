@@ -35,8 +35,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  display: felx;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-body);
   background-color: var(--parchment);
   color: var(--ink-text);
@@ -65,7 +65,7 @@ a:hover,
 a:focus-visible {
   color: var(--wine);
 }
-main {flex:1;}
+
 /* Visible keyboard focus everywhere */
 a:focus-visible,
 button:focus-visible {
@@ -134,6 +134,10 @@ header p {
 .section-light .btn:hover {
   background: var(--wine);
   color: var(--parchment-soft);
+}
+
+main {
+  flex: 1;
 }
 
 /* -------------------- Navigation (clickable page buttons) -------------------- */
@@ -379,15 +383,6 @@ body.dark-mode .section-light h3,
 body.dark-mode .section-light article h3 {
   color: var(--gold);
 }
-body.dark-mode .section-dark{
-   background: #000000;
-   color: var(00cream0text);}
-}
-body.dark-mode .section-dark h2,
-body.dark-mode .section-dark h3,
-body.dark-mode .section-dark article h3 {
-  color: var(--gold);
-}
 
 body.dark-mode .section-light .btn,
 body.dark-mode .section-light .clock {
@@ -408,6 +403,24 @@ body.dark-mode .fact-box {
 body.dark-mode .nav-btn.active {
   background: var(--gold);
   color: var(--ink);
+}
+
+/* .section-dark pages (On Screen, On the Page, Countdown) are already dark
+   by default, so without this rule toggling dark mode did nothing visible
+   on them. This deepens them further so the toggle has an effect everywhere. */
+body.dark-mode .section-dark {
+  background: #000000;
+  color: var(--cream-text);
+}
+
+body.dark-mode .section-dark h2,
+body.dark-mode .section-dark h3,
+body.dark-mode .section-dark article h3 {
+  color: var(--gold);
+}
+
+body.dark-mode .section-dark .artifact-img {
+  background: #000000;
 }
 
 body.dark-mode footer {
