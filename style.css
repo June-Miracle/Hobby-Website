@@ -402,9 +402,6 @@ body.dark-mode .nav-btn.active {
   color: var(--ink);
 }
 
-/* .section-dark pages (On Screen, On the Page, Countdown) are already dark
-   by default, so without this rule toggling dark mode did nothing visible
-   on them. This deepens them further so the toggle has an effect everywhere. */
 body.dark-mode .section-dark {
   background: #000000;
   color: var(--cream-text);
