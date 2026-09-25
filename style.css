@@ -1,9 +1,9 @@
 :root {
-  --ink: #10161B;         
+  --ink: #10161B;          
   --ink-soft: #1B242C;     
   --parchment: #EDE3C8;    
   --parchment-soft: #F6EFDC; 
-  --aegean: #2F6690;      
+  --aegean: #2F6690;       
   --aegean-deep: #234C6B;  
   --gold: #A6802D;         
   --wine: #7B3B3B;         
@@ -14,6 +14,7 @@
   --font-display: "Spectral", Georgia, "Times New Roman", serif;
   --font-body: "Inter", -apple-system, Segoe UI, Roboto, sans-serif;
 }
+
 /* -------------------- Reset & base -------------------- */
 * {
   box-sizing: border-box;
@@ -270,7 +271,7 @@ article h3 {
   display: block;
   width: 100%;
   max-width: 100%;
-  height: 260px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border: 1px solid var(--gold);
   padding: 6px;
@@ -441,10 +442,6 @@ body.dark-mode footer {
 
   section > h2 {
     font-size: 1.5rem;
-  }
-
-  .artifact-img {
-    height: 200px;
   }
 
   .countdown-box .unit {
